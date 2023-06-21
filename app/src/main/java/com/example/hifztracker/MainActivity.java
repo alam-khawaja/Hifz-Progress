@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         btnGit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url="https://github.com/anss0005/Madrasa-Student-Portal";
+                String url="https://github.com/alam-khawaja/Hifz-Progress";
                 Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(intent);
             }
