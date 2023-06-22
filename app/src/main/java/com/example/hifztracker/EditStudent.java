@@ -2,6 +2,7 @@ package com.example.hifztracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,16 +10,17 @@ import android.widget.EditText;
 
 public class EditStudent extends AppCompatActivity {
 
-    EditText etStudentId, etName, etAge, etClas, etSabaq, etSabqi, etManzil;
+    EditText etRoll, etName, etAge, etClas, etSabaq, etSabqi, etManzil;
     Button btnEdit;
     DbHelper db;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_student);
 
-        etStudentId = findViewById(R.id.et_student_id);
+        etRoll = findViewById(R.id.et_student_roll);
         etName = findViewById(R.id.et_name);
         etAge = findViewById(R.id.et_age);
         etClas = findViewById(R.id.et_clas);
@@ -33,7 +35,7 @@ public class EditStudent extends AppCompatActivity {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String studentId = etStudentId.getText().toString();
+                String roll = etRoll.getText().toString();
                 String name = etName.getText().toString();
                 String age = etAge.getText().toString();
                 String clas = etClas.getText().toString();
@@ -41,12 +43,12 @@ public class EditStudent extends AppCompatActivity {
                 String sabqi = etSabqi.getText().toString();
                 String manzil = etManzil.getText().toString();
 
-                if (studentId.isEmpty() || name.isEmpty() || age.isEmpty() || clas.isEmpty() || sabaq.isEmpty() || sabqi.isEmpty() || manzil.isEmpty()) {
+                if (roll.isEmpty() || name.isEmpty() || age.isEmpty() || clas.isEmpty() || sabaq.isEmpty() || sabqi.isEmpty() || manzil.isEmpty()) {
                     // Handle empty fields or show a message to the user
                     return;
                 }
 
-                Student student = new Student(studentId, name, age, clas, sabaq, sabqi, manzil);
+                Student student = new Student(name, age, clas, sabaq, sabqi, manzil,roll);
                 db.updateStudent(student);
 
                 // Optionally, you can show a success message or perform any other desired actions

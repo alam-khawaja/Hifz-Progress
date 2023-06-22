@@ -18,6 +18,8 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "students";
 
     private static final String COLUMN_ID = "id";
+
+    private static final String COLUMN_Roll = "id";
     private static final String COLUMN_NAME = "name";
     private static final String COLUMN_Age = "age";
     private static final String COLUMN_Clas = "clas";
@@ -38,7 +40,8 @@ public class DbHelper extends SQLiteOpenHelper {
                 + COLUMN_Clas + " TEXT,"
                 + COLUMN_Sabaq + " TEXT,"
                 + COLUMN_Sabaqi + " INTEGER ,"
-                + COLUMN_Manzil + " TEXT"
+                + COLUMN_Manzil + " TEXT,"
+                + COLUMN_Roll + "TEXT"
                 + ")";
         db.execSQL(sql);
     }
@@ -54,6 +57,8 @@ public class DbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
+
+        values.put(COLUMN_Roll, student.getRoll());
         values.put(COLUMN_NAME, student.getName());
         values.put(COLUMN_Age, student.getAge());
         values.put(COLUMN_Clas, student.getClas());
@@ -70,6 +75,8 @@ public class DbHelper extends SQLiteOpenHelper {
     public void updateStudent(Student student) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+
+        values.put(COLUMN_Roll, student.getRoll());
         values.put(COLUMN_NAME, student.getName());
         values.put(COLUMN_Age, student.getAge());
         values.put(COLUMN_Clas, student.getClas());
@@ -92,7 +99,7 @@ public class DbHelper extends SQLiteOpenHelper {
         List<Student> students = new ArrayList<>();
 
         SQLiteDatabase db = this.getWritableDatabase();
-        String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_ID + "=?";
+        String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_Roll + "=?";
         String[] selectionArgs = {id}; // Provide the value for the search criteria
 
         Cursor cursor = db.rawQuery(sql, selectionArgs);
@@ -105,6 +112,7 @@ public class DbHelper extends SQLiteOpenHelper {
             int columnIndexSabaq = cursor.getColumnIndex(COLUMN_Sabaq);
             int columnIndexSabqi = cursor.getColumnIndex(COLUMN_Sabaqi);
             int columnIndexManzil = cursor.getColumnIndex(COLUMN_Manzil);
+            int columnIndexRoll = cursor.getColumnIndex(COLUMN_Roll);
 
             do {
                 int studentId = cursor.getInt(columnIndexId);
@@ -114,8 +122,9 @@ public class DbHelper extends SQLiteOpenHelper {
                 String sabaq = columnIndexSabaq != -1 ? cursor.getString(columnIndexSabaq) : "";
                 String sabqi = columnIndexSabqi != -1 ? cursor.getString(columnIndexSabqi) : "";
                 String manzil = columnIndexManzil != -1 ? cursor.getString(columnIndexManzil) : "";
+                String roll = columnIndexRoll != -1 ? cursor.getString(columnIndexRoll) : "";
 
-                students.add(new Student(id,name, age, clas, sabaq, sabqi, manzil));
+                students.add(new Student(name, age, clas, sabaq, sabqi, manzil,roll));
             } while (cursor.moveToNext());
         }
 
@@ -157,8 +166,10 @@ public class DbHelper extends SQLiteOpenHelper {
                 @SuppressLint("Range") String sabaq = cursor.getString(cursor.getColumnIndex(COLUMN_Sabaq));
                 @SuppressLint("Range") String sabqi = cursor.getString(cursor.getColumnIndex(COLUMN_Sabaqi));
                 @SuppressLint("Range") String manzil = cursor.getString(cursor.getColumnIndex(COLUMN_Manzil));
+                @SuppressLint("Range") String roll = cursor.getString(cursor.getColumnIndex(COLUMN_Roll));
 
-                students.add(new Student(String.valueOf(id),name, age, clas,sabaq,sabqi,manzil));
+
+                students.add(new Student(name, age, clas,sabaq,sabqi,manzil,roll));
             } while (cursor.moveToNext());
         }
 

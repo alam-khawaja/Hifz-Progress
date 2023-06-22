@@ -29,7 +29,7 @@ class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyVH> {
     @Override
     public void onBindViewHolder(@NonNull StudentAdapter.MyVH holder, int position) {
         Student student = studentsList.get(position);
-        holder.studentID.setText(student.getStudentID());
+        holder.studentID.setText(student.getRoll());
         holder.name.setText(student.getName());
         holder.age.setText(student.getAge());
         holder.clas.setText(student.getClas());

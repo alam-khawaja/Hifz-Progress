@@ -19,7 +19,7 @@ public class EntryForm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entry_form);
 
-        etStudentID = findViewById(R.id.et_student_id);
+        etStudentID = findViewById(R.id.et_student_roll);
         etName = findViewById(R.id.et_name);
         etAge = findViewById(R.id.et_age);
         etClas = findViewById(R.id.et_clas);
@@ -33,7 +33,7 @@ public class EntryForm extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String studentID = etStudentID.getText().toString();
+                String roll = etStudentID.getText().toString();
                 String name = etName.getText().toString();
                 String age = etAge.getText().toString();
                 String clas = etClas.getText().toString();
@@ -46,7 +46,7 @@ public class EntryForm extends AppCompatActivity {
                     // return;
                 }
 
-                Student student = new Student(studentID, name, age, clas, sabaq, sabqi, manzil);
+                Student student = new Student(name, age, clas, sabaq, sabqi, manzil,roll);
                 db.insertStudent(student);
             }
         });
