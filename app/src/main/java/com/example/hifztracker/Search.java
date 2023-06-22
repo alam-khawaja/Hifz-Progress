@@ -30,7 +30,7 @@ public class Search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        etId = findViewById(R.id.et_id); // Update the EditText ID
+        etId = findViewById(R.id.et_id);
 
         btnSearch = findViewById(R.id.btn_search);
 
