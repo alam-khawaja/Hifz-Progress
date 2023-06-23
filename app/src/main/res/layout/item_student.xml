@@ -7,7 +7,7 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/student_id"
+        android:id="@+id/student_roll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"

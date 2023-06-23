@@ -54,7 +54,7 @@ class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyVH> {
 
         public MyVH(@NonNull View itemView) {
             super(itemView);
-            studentID = itemView.findViewById(R.id.student_id);
+            studentID = itemView.findViewById(R.id.student_roll);
             name = itemView.findViewById(R.id.name);
             age = itemView.findViewById(R.id.age);
             clas = itemView.findViewById(R.id.clas);
