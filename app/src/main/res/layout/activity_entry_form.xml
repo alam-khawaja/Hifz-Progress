@@ -1,70 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:screenOrientation="portrait"
     android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_student_roll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Student ID"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/et_student_roll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Student ID"
+        android:layout_below="@id/tv_student_roll"
+        android:hint="Enter Student ID"
         android:inputType="text"
         android:maxLines="1"
         android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_student_roll"
+        android:text="Name"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name"
+        android:layout_below="@id/tv_name"
+        android:hint="Enter Name"
         android:inputType="text"
         android:maxLines="1"
         android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/tv_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_name"
+        android:text="Age"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/et_age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Age"
+        android:layout_below="@id/tv_age"
+        android:hint="Enter Age"
         android:inputType="number"
         android:maxLines="1"
         android:minHeight="48dp" />
 
-    <EditText
-        android:id="@+id/et_clas"
+    <TextView
+        android:id="@+id/tv_class"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Class"
+        android:layout_below="@id/et_age"
+        android:text="Class"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/et_class"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_class"
+        android:hint="Enter Class"
         android:inputType="text"
         android:maxLines="1"
         android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/tv_sabaq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_class"
+        android:text="Sabaq"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/et_sabaq"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Sabaq"
+        android:layout_below="@id/tv_sabaq"
+        android:hint="Enter Sabaq"
         android:inputType="text"
         android:maxLines="1"
         android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/tv_sabqi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_sabaq"
+        android:text="Sabqi"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/et_sabqi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Sabqi"
+        android:layout_below="@id/tv_sabqi"
+        android:hint="Enter Sabqi"
         android:inputType="text"
         android:maxLines="1"
         android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/tv_manzil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_sabqi"
+        android:text="Manzil"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/et_manzil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Manzil"
+        android:layout_below="@id/tv_manzil"
+        android:hint="Enter Manzil"
         android:inputType="text"
         android:maxLines="1"
         android:minHeight="48dp" />
@@ -73,5 +133,8 @@
         android:id="@+id/btn_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/et_manzil"
+        android:layout_marginTop="16dp"
         android:text="Save" />
-</LinearLayout>
+
+</RelativeLayout>
